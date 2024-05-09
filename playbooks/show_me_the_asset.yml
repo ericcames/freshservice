@@ -12,7 +12,7 @@
       retries: 40
       delay: 10
       ansible.builtin.uri:
-        url: "{{ instance }}/api/v2/assets{{ id }}"
+        url: https://redhat.freshservice.com/api/v2/assets{{ id }}
         method: GET
         user: "{{ username }}"
         password: "X"
