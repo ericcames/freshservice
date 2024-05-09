@@ -1,0 +1,24 @@
+---
+- name: Show me the asset
+  hosts: localhost
+  connection: local
+
+  tasks:
+
+    - name: Get my host
+      register: my_host_list
+      ignore_errors: true
+      until: my_host_list.json.count > 0
+      retries: 40
+      delay: 10
+      ansible.builtin.uri:
+        url: "{{ instance }}/api/v2/assets{{ id }}"
+        method: GET
+        user: "{{ username }}"
+        password: "X"
+        validate_certs: false
+        force_basic_auth: true
+        status_code: 200
+        return_content: true
+        headers:
+          Content-Type: application/json
