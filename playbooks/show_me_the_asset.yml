@@ -6,11 +6,7 @@
   tasks:
 
     - name: Get my host
-      register: my_host_list
-      ignore_errors: true
-      until: my_host_list.json.count > 0
-      retries: 40
-      delay: 10
+      register: my_host
       ansible.builtin.uri:
         url: https://redhat.freshservice.com/api/v2/assets{{ id }}
         method: GET
@@ -22,3 +18,7 @@
         return_content: true
         headers:
           Content-Type: application/json
+
+    - name: Print shit
+      ansible.builtin.debug:
+        var: my_host
