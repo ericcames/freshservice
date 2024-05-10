@@ -20,12 +20,13 @@
         return_content: true
         headers:
           Content-Type: application/json
-        body_format: form-urlencoded
+        body_format: json
         body:
-          name: foobar
-          asset_type_id: 31000108653
-          description: "{{ asset_description }}"
-
+          {
+            "name": "{{ asset_name }}",
+            "asset_type_id": "{{ asset_type_id }}",
+            "description": "{{ asset_description }}"
+          }
     - name: Print out my asset name
       ansible.builtin.debug:
         msg: "{{ my_assets['json']['asset']['name'] }}"
