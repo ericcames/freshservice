@@ -16,7 +16,7 @@
         password: "X"
         validate_certs: false
         force_basic_auth: true
-        status_code: 200
+        status_code: 201
         return_content: true
         headers:
           Content-Type: application/json
