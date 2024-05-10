@@ -20,7 +20,7 @@
         return_content: true
         headers:
           Content-Type: application/json
-        body_format: raw
+        body_format: json
         body:
           {
             "name": "{{ asset_name }}",
