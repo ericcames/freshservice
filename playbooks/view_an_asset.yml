@@ -2,10 +2,12 @@
 - name: Show me the asset
   hosts: localhost
   connection: local
+  vars_files:
+    - secrets.yml
 
   tasks:
 
-    - name: Get my host
+    - name: View my asset
       register: my_host
       ansible.builtin.uri:
         url: https://redhat.freshservice.com/api/v2/assets/{{ id }}
@@ -19,6 +21,6 @@
         headers:
           Content-Type: application/json
 
-    - name: Print out my server name
+    - name: Print out my asset name
       ansible.builtin.debug:
         msg: "{{ my_host['json']['asset']['name'] }}"

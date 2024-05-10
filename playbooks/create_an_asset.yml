@@ -1,0 +1,31 @@
+---
+- name: Show me the asset
+  hosts: localhost
+  connection: local
+  vars_files:
+    - secrets.yml
+
+  tasks:
+
+    - name: View a FreshSerive Asset
+      register: my_assets
+      ansible.builtin.uri:
+        url: https://redhat.freshservice.com/api/v2/assets/
+        method: POST
+        user: "{{ username }}"
+        password: "X"
+        validate_certs: false
+        force_basic_auth: true
+        status_code: 200
+        return_content: true
+        headers:
+          Content-Type: application/json
+        body_format: form-urlencoded
+        body:
+          name: "{{ asset_name }}"
+          asset_type_id: "{{ asset_type_id }}"
+          description: "{{ asset_description }}"
+
+    - name: Print out my asset name
+      ansible.builtin.debug:
+        msg: "{{ my_assets['json']['asset']['name'] }}"
