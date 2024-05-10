@@ -8,7 +8,7 @@
     - name: Get my host
       register: my_host
       ansible.builtin.uri:
-        url: https://redhat.freshservice.com/api/v2/assets{{ id }}
+        url: https://redhat.freshservice.com/api/v2/assets/{{ id }}
         method: GET
         user: "{{ username }}"
         password: "X"
