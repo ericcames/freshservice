@@ -22,8 +22,8 @@
           Content-Type: application/json
         body_format: form-urlencoded
         body:
-          name: "{{ asset_name }}"
-          asset_type_id: "{{ asset_type_id }}"
+          name: foobar
+          asset_type_id: 31000108653
           description: "{{ asset_description }}"
 
     - name: Print out my asset name
