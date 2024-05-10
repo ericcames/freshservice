@@ -21,4 +21,4 @@
 
     - name: Print shit
       ansible.builtin.debug:
-        var: my_host
+        msg: "{{ my_host['json']['asset']['name'] }}"
