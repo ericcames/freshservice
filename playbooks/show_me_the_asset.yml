@@ -19,6 +19,6 @@
         headers:
           Content-Type: application/json
 
-    - name: Print shit
+    - name: Print out my server name
       ansible.builtin.debug:
         msg: "{{ my_host['json']['asset']['name'] }}"
