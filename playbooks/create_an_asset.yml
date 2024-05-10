@@ -24,7 +24,7 @@
         body:
           {
             "name": "{{ asset_name }}",
-            "asset_type_id": "{{ asset_type_id }}",
+            "asset_type_id": 31000108653,
             "description": "{{ asset_description }}"
           }
     - name: Print out my asset name
