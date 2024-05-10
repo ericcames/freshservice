@@ -1,5 +1,5 @@
 ---
-- name: Show me the asset
+- name: Create the asset
   hosts: localhost
   connection: local
   vars_files:
@@ -7,7 +7,7 @@
 
   tasks:
 
-    - name: View a FreshSerive Asset
+    - name: Create a FreshSerive Asset
       register: my_assets
       ansible.builtin.uri:
         url: https://redhat.freshservice.com/api/v2/assets/
