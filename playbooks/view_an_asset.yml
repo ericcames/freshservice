@@ -6,14 +6,13 @@
     - secrets.yml
 
   tasks:
-
     - name: View my asset
       register: my_host
       ansible.builtin.uri:
         url: https://redhat.freshservice.com/api/v2/assets/{{ id }}
         method: GET
         user: "{{ username }}"
-        password: "X"
+        password: X
         validate_certs: false
         force_basic_auth: true
         status_code: 200

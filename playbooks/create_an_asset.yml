@@ -6,14 +6,13 @@
     - secrets.yml
 
   tasks:
-
     - name: Create a FreshSerive Asset
       register: my_assets
       ansible.builtin.uri:
         url: https://redhat.freshservice.com/api/v2/assets/
         method: POST
         user: "{{ username }}"
-        password: "X"
+        password: X
         validate_certs: false
         force_basic_auth: true
         status_code: 201
@@ -21,12 +20,7 @@
         headers:
           Content-Type: application/json
         body_format: json
-        body:
-          {
-            "name": "{{ asset_name }}",
-            "asset_type_id": "{{ asset_type_id }}",
-            "description": "{{ asset_description }}"
-          }
+        body: { name: "{{ asset_name }}", asset_type_id: "{{ asset_type_id }}", description: "{{ asset_description }}" }
     - name: Print out my asset name
       ansible.builtin.debug:
         msg: "{{ my_assets['json']['asset']['name'] }}"
